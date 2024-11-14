@@ -4,6 +4,6 @@
   become: yes
 
   tasks:
-    - name: Perform nightly backup of skynet
+    - name: Perform nightly backup of local server data
       shell:
         "sh ~/server_backup.sh"
