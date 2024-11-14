@@ -6,4 +6,4 @@
   tasks:
     - name: Perform nightly backup of skynet
       shell:
-    	  "sh ~/skynet_backup.sh"
+        "sh ~/skynet_backup.sh"
