@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: Perform nightly backup of skynet
+      shell:
+        "sh ~/server_backup.sh"
