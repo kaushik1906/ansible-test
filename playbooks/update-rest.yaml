@@ -4,6 +4,16 @@
   become: yes
 
   tasks:
+    - name: Check if docker is installed
+      ansible.builtin.command: docker --version
+      register: docker_check
+      ignore_errors: yes
+      changed_when: false
+
+    - name: Prune unused docker images/containers/networks (only if docker exists)
+      ansible.builtin.command: docker system prune -a -f
+      when: docker_check.rc == 0
+
     - name: Perform a dist-upgrade.
       ansible.builtin.apt:
         upgrade: dist
